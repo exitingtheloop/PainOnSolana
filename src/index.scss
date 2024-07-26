@@ -201,7 +201,7 @@ body {
   /* Non-accessible color */
   margin-bottom: 30px !important;
   color: #000 !important;
-  text-shadow: -4px 6px 6px #fff;
+  text-shadow: -4px 6px 6px #b40000;
   /* color: #af8602; */
   font-family: Starborn, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   text-transform: uppercase;
@@ -237,7 +237,7 @@ body {
   align-items: center;
   background-color: transparent;
   color: #fff !important;
-  border: 2px solid #5800c4;
+  border: 2px solid #b40000;
   box-shadow: -3px 4px 0 0 #000;
   font-family: SaoTorpes, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   font-size: 1.5rem;
@@ -300,7 +300,7 @@ body {
   align-items: center;
   justify-content: center;
   line-height: 1;
-  border: 1px solid #5800c4;
+  border: 1px solid #b40000;
 }
 .social-icon a::before {
   content: "";
@@ -799,7 +799,7 @@ h3 {
   }
 
   #paindialogue {
-    width: 400px;
+    width: 380px;
   }
 
   #painonedo {
