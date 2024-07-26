@@ -125,7 +125,6 @@ body {
   color: #252525;
   font-weight: 400;
   background-color: var(--base-light-color) !important;
-  border-bottom: 1.6rem solid #fff;
   min-height: 100vh;
   padding: 0px;
   z-index: 100;
@@ -795,6 +794,10 @@ h3 {
 }
 
 @media screen and (max-width: 500px) {
+  body {
+    min-height: 100%;
+  }
+
   #paindialogue {
     width: 400px;
   }
