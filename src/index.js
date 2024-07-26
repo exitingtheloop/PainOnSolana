@@ -69,7 +69,7 @@ function EdoTensei() {
 }
 
 function PainDialogue() {
-  return <img id="paindialogue" src="popjpegs/painspeech2.png" />;
+  return <img id="paindialogue" src="popjpegs/PEPEPAINDIALOGUE2.png" />;
 }
 
 function PainOnEdo() {
