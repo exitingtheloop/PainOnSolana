@@ -1,0 +1,1020 @@
+@font-face {
+  font-family: "SaoTorpes";
+  src: local("SaoTorpes"), url("./fonts/SaoTorpes.otf") format("opentype");
+  font-weight: normal;
+}
+@font-face {
+  font-family: "Loved By The King";
+  src: local("Loved By The King"),
+    url("./fonts/LovedbytheKing-Regular.ttf") format("truetype");
+  font-weight: normal;
+}
+@font-face {
+  font-family: "Starborn";
+  src: local("Starborn"), url("./fonts/Starborn.ttf") format("truetype");
+  font-weight: normal;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;1,300&display=swap");
+
+:root {
+  --no-of-slides: 13;
+  --slides-in-view: 5;
+  --slide-width: 250px;
+  --margin: 40px;
+  --slide-width-w-margin: 290px;
+  --custom-width: 200px;
+  --slide-height: 200px;
+  --iteration-time: 60s;
+  --base-light-color: rgba(0, 0, 0, 0);
+}
+
+$total: 200;
+$time: 10s;
+
+* {
+  margin: 0 !important;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.edowrap {
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  background: black;
+  background-image: radial-gradient(
+    circle at center,
+    white 5%,
+    #222 20%,
+    black 60%
+  );
+  position: fixed;
+  top: 0%;
+  left: 0%;
+}
+
+.tri {
+  height: 0;
+  width: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+@for $i from 1 through $total {
+  $size: random(50) * 1px;
+  $rotate: random(360) * 1deg;
+  .tri:nth-child(#{$i}) {
+    border-top: $size solid hsla(random(360), 100%, 50%, 1);
+    border-right: $size solid transparent;
+    border-left: $size solid transparent;
+    margin-left: -$size/2;
+    margin-top: -$size/2;
+    -webkit-filter: grayscale(1);
+    filter: grayscale(1);
+    transform: rotate($rotate) translate3d(0, 0, -1500px) scale(0);
+    animation: anim#{$i} $time infinite linear;
+    animation-delay: $i * -($time/$total);
+    opacity: 0;
+  }
+
+  @keyframes anim#{$i} {
+    0% {
+      opacity: 1;
+      transform: rotate($rotate * 1.5)
+        translate3d(random(1000) * 1px, random(1000) * 1px, 1000px) scale(1);
+    }
+  }
+}
+
+/*PAIN*/
+#paindialogue {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 800px;
+  z-index: 10;
+}
+
+#painonedo {
+  width: 200px;
+  position: absolute;
+  top: 50%;
+  left: 38%;
+}
+
+/*PAIN*/
+
+.doodle {
+  position: fixed !important;
+  z-index: -1 !important;
+}
+
+.Toastify__toast-body {
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Roboto Mono", sans-serif;
+  color: #252525;
+  font-weight: 400;
+  background-color: var(--base-light-color) !important;
+  border-bottom: 1.6rem solid #fff;
+  min-height: 100vh;
+  padding: 0px;
+  z-index: 100;
+}
+
+#stars {
+  display: block;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.ball {
+  position: fixed;
+  border-radius: 100%;
+  opacity: 0.7;
+  z-index: -1;
+}
+
+.hide {
+  display: none !important;
+}
+
+.loader {
+  position: fixed;
+  color: #fff;
+  top: 50%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+}
+
+#main-container {
+  padding-bottom: 50px;
+  padding-top: 50px;
+  padding-left: 0px;
+  padding-right: 0px;
+  max-width: 3000px !important;
+  background-color: var(--base-light-color);
+}
+
+.btn {
+  color: inherit;
+  font-family: inherit;
+  border: none;
+  font-size: 1.4rem;
+  font-weight: 500;
+  background-color: #edc84b;
+  padding: 1.4rem 3.2rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn:hover {
+  background-color: #e9bb24;
+}
+
+/**************************** TOP HEADER ****************************/
+
+.header {
+  align-self: stretch;
+  margin-bottom: 30px;
+}
+
+.header h3 {
+  text-align: center;
+  font-family: SaoTorpes;
+  font-style: normal !important;
+  font-size: 2rem;
+}
+
+.header h1 {
+  /* Non-accessible color */
+  margin-bottom: 30px !important;
+  color: #000 !important;
+  text-shadow: -4px 6px 6px #fff;
+  /* color: #af8602; */
+  font-family: Starborn, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 8rem;
+  font-weight: 800;
+  letter-spacing: 3px;
+  position: relative;
+  width: 100%;
+  display: block;
+}
+
+.header h1::before,
+.header h1::after {
+  display: block;
+  content: "";
+  height: 3px;
+  width: 12rem;
+  background-color: #fff;
+  position: absolute;
+  top: calc(50%);
+}
+
+.header h1::before {
+  left: 0;
+}
+
+.header h1::after {
+  right: 0;
+}
+
+.contractClip {
+  align-items: center;
+  background-color: transparent;
+  color: #fff !important;
+  border: 2px solid #5800c4;
+  box-shadow: -3px 4px 0 0 #000;
+  font-family: SaoTorpes, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: 1.5rem;
+  justify-content: center;
+  display: inline-block;
+  padding: 10px 20px;
+  margin-bottom: 15px !important;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.contractCopy {
+  font-size: 16px;
+  margin-top: var(--v-small);
+  position: relative;
+  z-index: 2;
+}
+
+.contractCopy .clipboard {
+  align-items: center;
+  background-color: var(--primary);
+  border: 2px solid var(--negative);
+  border-radius: 100px;
+  box-shadow: -5px 6px 0 0 var(--negative);
+  font-family: var(--heading);
+  font-size: var(--btn-large);
+  justify-content: center;
+  padding: calc(var(--gutter) / 2);
+  transition: all 0.2s ease-in-out;
+}
+
+.socialsHeader {
+  color: #beefe8;
+  text-align: center;
+}
+
+.socialsHeader h4 {
+  display: inline-block;
+  padding: 1rem 2rem;
+  border-top: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  font-weight: 300;
+  color: #08415c;
+}
+
+.social-icon {
+  padding-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.social-icon a {
+  width: 50px;
+  height: 50px;
+  display: inline-flex;
+  border-radius: 50%;
+  margin-right: 6px !important;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  border: 1px solid #5800c4;
+}
+.social-icon a::before {
+  content: "";
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  background-color: #ffffff;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: 0.3s ease-in-out;
+}
+.social-icon a:hover::before {
+  transform: scale(1);
+}
+.social-icon a img {
+  width: 40%;
+  z-index: 1;
+  transition: 0.3s ease-in-out;
+}
+.social-icon a:hover img {
+  filter: brightness(0) saturate(100%) invert(0%) sepia(7%) saturate(98%)
+    hue-rotate(346deg) brightness(95%) contrast(86%);
+}
+
+/**************************** TOP HEADER ****************************/
+
+/**************************** MAIN BANNER ****************************/
+
+.mainbanner {
+  display: flex;
+  justify-content: center;
+  padding-top: 50px;
+  padding-left: 100px;
+  padding-right: 100px;
+  margin-bottom: 20px !important;
+}
+
+.mainbanner h1 {
+  text-transform: lowercase !important;
+  font-size: 5rem;
+  text-shadow: -6px 6px 2px #ff3366;
+  font-family: SaoTorpes, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+
+.mainbanner::before,
+.mainbanner::after {
+  content: "";
+  padding-top: 50px;
+  width: 50px;
+  height: 100px;
+}
+
+.mainbanner span,
+h1 {
+  color: #db93a5 !important;
+}
+
+.mainbanner span,
+h3 {
+  color: #fff !important;
+  margin-bottom: 10px !important;
+}
+
+.mainBannerCols {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#logo {
+  animation: updown 3s linear infinite;
+  width: 400px;
+}
+
+@keyframes updown {
+  0% {
+    transform: translateY(-20px);
+  }
+  50% {
+    transform: translateY(20px);
+  }
+  100% {
+    transform: translateY(-20px);
+  }
+}
+
+/**************************** MAIN BANNER ****************************/
+
+/**************************** ABOUT ****************************/
+
+#about-section {
+  display: flex;
+  justify-content: center;
+  padding-top: 50px;
+  padding-left: 400px;
+  padding-right: 400px;
+  margin-top: 100px !important;
+  margin-bottom: 100px !important;
+}
+
+#about-section h1 {
+  text-transform: lowercase !important;
+  font-size: 5rem;
+  text-shadow: -6px 6px 2px #ff3366;
+  font-family: SaoTorpes, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+
+#about-section p {
+  text-align: left;
+  color: #08415c;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-top: 20px !important;
+}
+
+/**************************** ABOUT ****************************/
+
+/**************************** CAROUSEL ****************************/
+
+#carousel-section {
+  display: flex;
+  justify-content: center;
+  padding-left: 100px;
+  padding-right: 100px;
+  background-color: rgba(252, 212, 181, 0.3);
+}
+
+.carousel-container {
+  overflow: hidden;
+  width: calc(2 * var(--no-of-slides));
+  margin: 70px 0 !important;
+}
+
+.carousel-container h1 {
+  font-family: saotorpes, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  color: #db93a5 !important;
+  text-shadow: -3px 3px 1px #ff3366;
+  /* color: #af8602; */
+
+  font-size: 4rem;
+  text-align: center;
+}
+
+.carousel-track {
+  width: calc(var(--slides-in-view) * var(--slide-width-w-margin));
+  animation: slide var(--iteration-time) linear infinite;
+  display: flex;
+
+  &:hover {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(
+      calc(var(--slide-width-w-margin) * var(--no-of-slides) * -1)
+    );
+  }
+}
+
+/**************************** CAROUSEL ****************************/
+
+/**************************** CREATE MEMES ****************************/
+
+#create-section {
+  display: flex;
+  justify-content: center;
+  padding-top: 50px;
+  padding-left: 100px;
+  padding-right: 100px;
+  margin-top: 100px !important;
+  margin-bottom: 20px !important;
+}
+
+#create-section h1 {
+  text-transform: lowercase !important;
+  font-size: 5rem;
+  text-shadow: -6px 6px 2px #ff3366;
+  font-family: SaoTorpes, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  margin-bottom: 30px !important;
+}
+
+#create-section p {
+  text-align: left;
+  color: #08415c;
+  font-size: 2rem;
+  text-align: center;
+}
+
+#create-arrow {
+  width: 150px;
+  display: flex;
+  margin: 0 auto !important;
+}
+
+#video-wrapper {
+  padding-left: 200px;
+  padding-right: 200px;
+}
+
+#pop-video {
+  border: double 2.5em transparent;
+  background-image: linear-gradient(white, white),
+    linear-gradient(to bottom right, #fcd4b5, #fcd4b5);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  margin: 0 auto !important;
+  margin-top: 50px !important;
+  display: flex;
+  aspect-ratio: 16 / 9;
+  width: 100%;
+}
+
+#base-display {
+  width: 400px;
+  /*border-radius: 50px;*/
+  border: double 1em transparent;
+  background-image: linear-gradient(white, white),
+    linear-gradient(to bottom right, #fcd4b5, #fcd4b5);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+}
+
+#base-display:hover {
+  border: double 1em transparent;
+  background-image: linear-gradient(white, white),
+    linear-gradient(to bottom right, pink, #ff3366);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+}
+
+#meme-showcase {
+  width: 400px;
+  background-color: #fcd4b5;
+  border: solid 5vmin #eee;
+  border-bottom-color: #fff;
+  border-left-color: #eee;
+  border-radius: 2px;
+  border-right-color: #eee;
+  border-top-color: #ddd;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25) inset,
+    0 5px 10px 5px rgba(0, 0, 0, 0.25);
+  box-sizing: border-box;
+  display: inline-block;
+  margin: 3vh 3vw !important;
+  height: 500px;
+  padding: 1vmin;
+  position: relative;
+  text-align: center;
+  &:before {
+    border-radius: 2px;
+    bottom: -2vmin;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25) inset;
+    content: "";
+    left: -2vmin;
+    position: absolute;
+    right: -2vmin;
+    top: -2vmin;
+  }
+  &:after {
+    border-radius: 2px;
+    bottom: -2.5vmin;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
+    content: "";
+    left: -2.5vmin;
+    position: absolute;
+    right: -2.5vmin;
+    top: -2.5vmin;
+  }
+}
+
+/**************************** CREATE MEMES ****************************/
+
+/**************************** DIVIDERS ****************************/
+
+.skew-cc {
+  width: 100%;
+  height: 100px;
+  position: absolute;
+  left: 0px;
+  background: linear-gradient(to right bottom, transparent 49%, #ffdfc7 50%);
+}
+
+.skew-c {
+  width: 100%;
+  height: 100px;
+  position: absolute;
+  left: 0px;
+  background: linear-gradient(
+    to left bottom,
+    #ffdfc7 49%,
+    var(--base-light-color) 50%
+  );
+}
+
+/**************************** DIVIDERS ****************************/
+
+/**************************** HOW TO BUY SECTION ****************************/
+
+#buy-btn {
+  font-size: 2rem;
+  font-family: starborn, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  color: #fff;
+  box-shadow: -5px 6px 0 0 #ff3366;
+  border: 2px solid #000;
+  border-radius: 20px;
+  background-color: #db93a5;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto !important;
+  width: 200px;
+}
+
+.itemBtn {
+  font-size: 2rem;
+  font-family: starborn, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  color: #fff;
+  box-shadow: -5px 6px 0 0 #ff3366;
+  border-radius: 20px;
+  background-color: #db93a5;
+  border: 2px solid #000;
+  display: flex;
+  justify-content: center;
+  text-align: left !important;
+  margin: 0 auto !important;
+  margin-top: 10px !important;
+  width: 200px;
+  text-decoration: none;
+}
+
+.buy-guide {
+  margin-top: 150px !important;
+  margin-bottom: 100px !important;
+  background-color: transparent;
+}
+
+.buy-guide h3 {
+  text-align: center;
+  font-family: SaoTorpes, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: 3rem;
+  color: #08415c !important;
+}
+
+.buy-guide h1 {
+  font-family: saotorpes, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  color: #db93a5 !important;
+  text-shadow: -3px 3px 1px #ff3366;
+
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 5.2rem;
+  font-weight: 800;
+  letter-spacing: 3px;
+  position: relative;
+  width: 100%;
+  display: block;
+}
+
+#buy-list {
+  padding: 10px 300px;
+  margin-top: 20px;
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: column;
+  list-style-type: disc;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  unicode-bidi: isolate;
+}
+
+.guideItem {
+  width: 100%;
+}
+
+#buy-list li {
+  margin: 50px 0px !important;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+#buy-list li span {
+  font-family: SaoTorpes, Haettenschweiler, "Arial Narrow Bold", sans-serif !important;
+  padding: 3px 10px;
+  margin-right: 20px !important;
+  font-size: 2rem;
+  flex-shrink: 0;
+  position: relative;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ff3366;
+  color: #fff;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  -webkit-transform: translateY(15%);
+  transform: translateY(15%);
+}
+
+#buy-list li h3 {
+  color: #08415c !important;
+  text-transform: uppercase;
+  text-align: left;
+  margin: 0 !important;
+  font-family: SaoTorpes, Haettenschweiler, "Arial Narrow Bold", sans-serif !important;
+}
+
+#buy-list li p {
+  text-align: left;
+  color: #08415c;
+  font-size: 2rem;
+}
+
+/**************************** HOW TO BUY SECTION ****************************/
+
+/**************************** FOOTER ****************************/
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #011627;
+  font-size: 1.4rem;
+  font-weight: 300;
+}
+
+/**************************** FOOTER ****************************/
+
+/**************************** RESPONSIVENESS ****************************/
+@media screen and (max-width: 1150px) {
+  #paindialogue {
+    width: 750px;
+  }
+
+  #painonedo {
+    width: 200px;
+    top: 50%;
+    left: 32%;
+  }
+
+  #about-section {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+
+  #base-display {
+    width: 300px;
+  }
+
+  #meme-showcase {
+    margin: 3vh auto !important;
+    display: flex;
+    width: 320px;
+    height: 360px;
+    padding: 1vmin;
+  }
+
+  #video-wrapper {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+
+  #buy-list {
+    padding-left: 100px !important;
+    padding-right: 100px !important;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  #logo {
+    width: 300px;
+  }
+
+  #paindialogue {
+    width: 650px;
+  }
+
+  #painonedo {
+    width: 250px;
+    top: 50%;
+    left: 28%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  #paindialogue {
+    width: 350px;
+  }
+
+  #painonedo {
+    width: 120px;
+    top: 50%;
+    left: 20%;
+  }
+
+  #video-wrapper {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  #pop-video {
+    border: double 0.5em transparent;
+  }
+
+  .mainbanner h1 {
+    text-shadow: -3px 3px 1px #ff3366;
+    font-size: 3.2rem;
+  }
+
+  .mainbanner {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+  }
+
+  #logo-col {
+    margin-bottom: 20px !important;
+    padding-bottom: 10px !important;
+  }
+
+  #about-display {
+    width: 300px;
+  }
+
+  #about-section {
+    margin-top: 70px !important;
+  }
+
+  #about-section h1 {
+    margin-top: 50px !important;
+    text-shadow: -3px 3px 1px #ff3366;
+    font-size: 3.5rem;
+  }
+
+  #about-section p {
+    margin-top: 20px !important;
+    margin-bottom: 20px !important;
+  }
+
+  #create-section p {
+    font-size: 1.5rem;
+  }
+
+  .carousel-container h1 {
+    font-size: 3rem;
+  }
+
+  #carousel-section {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  #create-section {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  #create-section h1 {
+    font-size: 3rem;
+    text-shadow: -3px 3px 1px #ff3366;
+  }
+
+  #base-display {
+    width: 300px;
+  }
+
+  #meme-showcase {
+    margin: 3vh auto !important;
+    display: flex;
+    width: 300px;
+    height: 45vh;
+    padding: 5vmin;
+  }
+
+  #about-section {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+  }
+
+  #about-section p {
+    font-size: 2rem;
+  }
+
+  .buy-guide {
+    margin-top: 100px !important;
+  }
+
+  .buy-guide h1 {
+    font-size: 3.5rem;
+  }
+
+  .buy-guide h3 {
+    font-size: 2.5rem;
+  }
+
+  #buy-list {
+    padding: 10px 20px !important;
+    margin-top: 20px;
+  }
+
+  #buy-list li p {
+    font-size: 1.5rem;
+  }
+
+  #logo {
+    padding-top: 20px;
+    width: 200px;
+  }
+
+  .header h1 {
+    font-size: 5rem;
+  }
+
+  .header h1::before,
+  .header h1::after {
+    width: 2rem;
+  }
+
+  .social-icon a {
+    width: 40px;
+    height: 40px;
+  }
+
+  .contractClip {
+    box-shadow: -3px 4px 0 0 #000;
+  }
+
+  .Toastify__toast-body {
+    font-size: 1.5rem;
+    font-weight: 500;
+    text-align: center !important;
+  }
+}
+
+/**************************** RESPONSIVENESS ****************************/
+
+/**************************** TICKER ****************************/
+
+@-webkit-keyframes ticker {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+  }
+
+  100% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+@keyframes ticker {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+  }
+
+  100% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+.ticker-wrap {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  overflow: hidden;
+  height: 4rem;
+  border-top: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  background-color: rgba(0, 0, 0, 0.9);
+  padding-left: 100%;
+  box-sizing: content-box;
+  z-index: 20;
+
+  .ticker {
+    display: inline-block;
+    height: 4rem;
+    line-height: 4rem;
+    white-space: nowrap;
+    padding-right: 100%;
+    box-sizing: content-box;
+
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    -webkit-animation-name: ticker;
+    animation-name: ticker;
+    -webkit-animation-duration: 30s;
+    animation-duration: 30s;
+
+    .ticker__item {
+      display: inline-block;
+      font-weight: 900;
+      font-family: Loved By The King, Haettenschweiler, "Arial Narrow Bold",
+        sans-serif;
+      padding: 0 2rem;
+      font-size: 2.5rem;
+      color: white;
+    }
+  }
+}
+
+/**************************** TICKER ****************************/
