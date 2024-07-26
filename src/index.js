@@ -252,7 +252,7 @@ function SocialsHeader(props) {
           onClick={() => {
             navigator.clipboard.writeText(ethAdd);
             toast.dismiss();
-            toast("Addy Copied! 🐶");
+            toast("Addy Copied! Vengeance is upon us!");
           }}
         >
           <span> {mobileMode ? shortenedEthAdd : ethAdd} </span>
