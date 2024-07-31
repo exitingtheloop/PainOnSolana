@@ -20,7 +20,7 @@ const twitter = "https://twitter.com/";
 const telegram = "https://t.me/starricto";
 const dexscreener = "https://dexscreener.com/";
 const buylink = "https://raydium.io/swap/";
-const footercontent = "2024 PopOnSolana. © All right reserved.";
+const footercontent = "2024 PainOnSolana. © All right reserved.";
 
 function importAll(r) {
   let images = [];
@@ -33,7 +33,7 @@ function importAll(r) {
 }
 
 const listOfImages = importAll(
-  require.context("./assets/popjpegs", false, /\.(png|jpe?g|svg)$/)
+  require.context("./assets/painjpegs", false, /\.(png|jpe?g|svg)$/)
 );
 
 function App() {
@@ -69,11 +69,11 @@ function EdoTensei() {
 }
 
 function PainDialogue() {
-  return <img id="paindialogue" src="popjpegs/PEPEPAINDIALOGUE5.png" />;
+  return <img id="paindialogue" src="painjpegs/PEPEPAINDIALOGUE5.png" />;
 }
 
 function PainOnEdo() {
-  return <img id="painonedo" src="popjpegs/painedo2.png" />;
+  return <img id="painonedo" src="painjpegs/painedo2.png" />;
 }
 
 function TickerTape() {
@@ -183,7 +183,7 @@ function MainBanner() {
                     isVisible ? "animate__animated animate__zoomIn" : ""
                   }
                 >
-                  <img id="logo" src="popjpegs/poplogo.png" alt="Header Img" />
+                  <img id="logo" src="painjpegs/poplogo.png" alt="Header Img" />
                 </div>
               )}
             </TrackVisibility>
@@ -463,7 +463,7 @@ function CreateMemes() {
                 >
                   <img
                     id="meme-showcase"
-                    src="popjpegs/MEMEBASE.png"
+                    src="painjpegs/MEMEBASE.png"
                     alt="Header Img"
                   />
                 </div>
@@ -480,7 +480,7 @@ function CreateMemes() {
                 >
                   <img
                     id="base-display"
-                    src="popjpegs/MEMEBASE.png"
+                    src="painjpegs/MEMEBASE.png"
                     alt="Header Img"
                   />
                 </div>
@@ -497,7 +497,7 @@ function CreateMemes() {
                 >
                   <img
                     id="create-arrow"
-                    src="popjpegs/arrow.png"
+                    src="painjpegs/arrow.png"
                     alt="Header Img"
                   />
                 </div>
@@ -514,7 +514,7 @@ function CreateMemes() {
                 >
                   <img
                     id="meme-showcase"
-                    src="popjpegs/DRESSUPPOP.gif"
+                    src="painjpegs/DRESSUPPOP.gif"
                     alt="Header Img"
                   />
                 </div>
@@ -584,7 +584,7 @@ function CreateYours() {
                 >
                   <img
                     id="about-display"
-                    src="popjpegs/dressuppop.gif"
+                    src="painjpegs/dressuppop.gif"
                     alt="Header Img"
                   />
                 </div>
